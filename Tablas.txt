@@ -1,0 +1,36 @@
+create table infante_de_marina (
+	codigo numeric(20) primary key,
+	nombre varchar(29) not null,
+	tipo numeric(2) not null,
+	check (tipo in (1,2,3)) ,
+	correo_electronico varchar(30) not null
+); 
+
+//Nota: No se le pudo poner check, Ponia problemas el mysql de syntaxis. 
+
+
+create table oficial (
+infante_de_marina numeric(20) primary key references infante_de_marina,
+arma varchar(20) not null,
+check (arma in ('Superficie','Ingenieria','Oceanografia','Logistica')) 
+); 
+
+create table cadete (
+infante_de_marina numeric(20) primary key references infante_de_marina,
+anio numeric(2) not null,
+check (anio in (1,2,3))
+); 
+
+create table suboficial (
+infante_de_marina numeric (20) primary key references infante_de_marina
+); 
+
+
+create table JEFExCADETE (
+consecutivo integer AUTO_INCREMENT primary key, 
+cadete numeric(10) references cadete, 
+suboficial numeric(10) references suboficial, 
+oficial numeric(10) references oficial, 
+fecha_inicio date not null, 
+fecha_fin date
+); 
