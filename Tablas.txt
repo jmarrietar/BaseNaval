@@ -12,17 +12,23 @@ create table infante_de_marina (
 create table oficial (
 infante_de_marina numeric(20) primary key references infante_de_marina,
 arma varchar(20) not null,
-check (arma in ('Superficie','Ingenieria','Oceanografia','Logistica')) 
+check (arma in ('Superficie','Ingenieria','Oceanografia','Logistica')),
+FOREIGN KEY (infante_de_marina) REFERENCES infante_de_marina(codigo)  
 ); 
 
 create table cadete (
-infante_de_marina numeric(20) primary key references infante_de_marina,
+infante_de_marina numeric(20) primary key,
 anio numeric(2) not null,
-check (anio in (1,2,3))
+check (anio in (1,2,3)),
+FOREIGN KEY (infante_de_marina) REFERENCES infante_de_marina(codigo)
 ); 
 
+
 create table suboficial (
-infante_de_marina numeric (20) primary key references infante_de_marina   /*Verificar q SQL si acepta poner references asi */ 
+infante_de_marina numeric(20) primary key,
+FOREIGN KEY (infante_de_marina) REFERENCES infante_de_marina(codigo), 
+asignacion varchar(20) not null,
+check (asignacion in ('sublogistico','instructor','operativo') )
 ); 
 
 
@@ -38,13 +44,13 @@ check ((suboficial IS NULL AND oficial IS NOT NULL )
 or (oficial IS  NULL AND suboficial IS NOT NULL ) ), 
 fecha_inicio date not null, 
 fecha_fin date, 
-CONSTRAINT FOREIGN KEY (oficial)  REFERENCES oficial(infante_de_marina) ON DELETE CASCADE,
-CONSTRAINT  FOREIGN KEY (cadete) REFERENCES cadete(infante_de_marina) ON DELETE CASCADE,
-CONSTRAINT  FOREIGN KEY (suboficial) REFERENCES suboficial(infante_de_marina) ON DELETE CASCADE
-)ENGINE=InnoDB; 
+FOREIGN KEY (oficial)  REFERENCES oficial (infante_de_marina),
+ FOREIGN KEY (cadete) REFERENCES cadete (infante_de_marina) ,
+ FOREIGN KEY (suboficial) REFERENCES suboficial (infante_de_marina) 
+)ENGINE=InnoDB;
 
 
-
+ INSERT INTO jefexcadete (cadete,suboficial,oficial,fecha_inicio,fecha_fin) VALUES ('998',null,'1002','2013-05-10','2013-05-23')
 
 
 

@@ -18,6 +18,13 @@ Elija el Suboficial que desea especificar.
 </select>
 <br/>
 
+Asignacion: <select name='asignacion'></br>
+<option value='sublogistico'>sublogistico</option>
+<option value='instructor'>instructor</option>
+<option value='operativo'>operativo</option>
+
+</select></br>
+
 <input type='submit' name ='registrar' value='Registrar'>
 
 </form>
@@ -29,7 +36,7 @@ Elija el Suboficial que desea especificar.
 <?php
 if (isset($_POST['registrar'])){
 	extract($_POST);
-	$query="INSERT INTO suboficial VALUES ('$suboficial')";
+	$query="INSERT INTO suboficial VALUES ('$suboficial','$asignacion')";
 
 	if(mysql_query($query)){
 		echo "<br/>Las especificaciones del suboficial se registraron correctamente";

@@ -4,7 +4,7 @@ $infantes=mysql_query("SELECT * FROM infante_de_marina");
 ?>
 
 <html>
-<form method='post ' action ='ActualizarInfante.php'>
+<form method='post' action ='ActualizarInfante.php'>
 Elije el Infante que desea actualizar 
 <select name='infante'>
 
@@ -16,11 +16,7 @@ Elije el Infante que desea actualizar
 </select></br>
 	Nombre: <input type='text' name='nombre' /><br/>
 	Correo electronico: <input type='text' name='correo' /><br/>
-	Tipo: <select name='tipo'><br/>
-			<option value=1 >1 </option>
-			<option value=2 >2 </option>
-			<option value=3 >3 </option>
-			</select><br/>
+	
 <input type='submit' name='actualizar' value='Actualizar'>
 
 </form> 
@@ -32,9 +28,10 @@ Elije el Infante que desea actualizar
 
 <?php 
 if (isset($_POST['actualizar'])){
+	echo "pase";
 	extract($_POST); 
 	$query="UPDATE infante_de_marina
-	  SET nombre ='$nombre',tipo='$tipo',correo_electronico='$correo'  
+	  SET nombre ='$nombre',correo_electronico='$correo'  
 	  WHERE codigo='$infante' ";
 if (mysql_query($query)) {
         echo "<br/>Las actualizaciones del Infante se registraron correctamente ";
