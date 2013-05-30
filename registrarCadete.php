@@ -19,7 +19,17 @@ Elije el Cadete que desea especificar
 </select>
 <br/>
 
-Anio: <input type='text' name='anio'><br/>
+
+
+Anio: <input type='text' name='anio' value="
+
+<?php 
+
+if(isset($_POST['anio']))
+echo $_POST['anio'];
+?>
+"><br/>
+
 
 <input type='submit' name='registrar' value='Registrar'>
 </form>
@@ -31,6 +41,9 @@ Anio: <input type='text' name='anio'><br/>
 <?php 
 if (isset($_POST['registrar'])){
 	extract($_POST); 
+
+	if ($anio==1 or $anio==2 or $anio==3 ){
+
 	$query="INSERT INTO cadete VALUES ('$cadete','$anio')";
 if (mysql_query($query)) {
         echo "<br/>Las especificaciones del cadete se registraron correctamente ";
@@ -38,7 +51,13 @@ if (mysql_query($query)) {
         echo "<br/>Se ha producido un error con la consulta: $query";
     }
 
+}else {
+	echo "<br>Numero no se encuentra en un rango Valido {1,2,3}.";
+
 }
+
+}
+
 ?>
 
 

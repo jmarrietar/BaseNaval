@@ -1,1 +1,0 @@
-*El cadete No puede estar asignado a dos jefes... (pero puede tener varios Jefes a lo largo del tiempo. (Fechas distintas))
