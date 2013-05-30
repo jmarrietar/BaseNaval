@@ -29,12 +29,37 @@ Elije el Infante que desea Borrar
 <?php 
 if (isset($_POST['borrar'])){
 	extract($_POST); 
-	$query="DELETE FROM infante_de_marina WHERE codigo='$infante'";
-if (mysql_query($query)) {
-        echo "<br/>Las datos del Infante se han borrado correctamente ";
-    } else {
-        echo "<br/>Se ha producido un error con la consulta: $query";
-    }
+
+	$query1= "DELETE FROM JEFExCadete WHERE oficial ='$infante' ";
+	$query2= "DELETE FROM JEFExCadete WHERE suboficial ='$infante' ";
+	$query3="DELETE FROM JEFExCadete WHERE cadete ='$infante' ";
+
+	if (mysql_query($query1) && mysql_query($query2) && mysql_query($query3) ) {
+		echo "Se han borrado los nietos";
+
+
+		$query4="DELETE FROM oficial WHERE infante_de_marina='$infante'"; 
+		$query5="DELETE FROM suboficial WHERE infante_de_marina='$infante'";
+		$query6="DELETE FROM cadete WHERE infante_de_marina='$infante'";  
+
+		if (mysql_query($query4) && mysql_query($query5) && mysql_query($query6) ){
+
+			echo " Se han borrado todos los hijos"; 
+
+					$query="DELETE FROM infante_de_marina WHERE codigo='$infante'";
+				if (mysql_query($query)) {
+      					  echo "<br/>Las datos del Infante se han borrado correctamente ";
+    		} else {
+      					  echo "<br/>Se ha producido un error con la consulta: $query";
+  					  }
+
+		}
+
+	} else {
+		echo " no se borraron nietos"; 
+	}
+
+
 }
 
 ?>

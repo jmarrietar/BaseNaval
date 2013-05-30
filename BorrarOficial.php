@@ -23,12 +23,24 @@ echo "<option value ='$row[0]'>$row[0]</option>";
 <?php 
 if (isset($_POST['borrar'])){
 	extract($_POST); 
+
+$query2="DELETE FROM JEFExCadete WHERE oficial ='$oficial' ";
+
+if (mysql_query($query2)){
+echo "Se han borrado los hijos "; 
+
 	$query="DELETE FROM oficial WHERE infante_de_marina='$oficial'";
 if (mysql_query($query)) {
         echo "<br/>Las datos del oficial se han borrado correctamente ";
     } else {
         echo "<br/>Se ha producido un error con la consulta: $query";
     }
+
+
+}else {
+	echo "No se han borrado los hijos Ni tampoco el Oficial."; 
+}
+
 }
 
 ?>

@@ -8,19 +8,20 @@ create table infante_de_marina (
 
 //Nota: No se le pudo poner check, Ponia problemas el mysql de syntaxis. 
 
+/* NOTA GENERAL: METER TODAS ESTAS TABLAS DENEUVO CON DATOS Y 
+ VERIFICAR QUE SE CUMPLA LO DE CLAVE PRIMARIA
 
+*/ 
 create table oficial (
 infante_de_marina numeric(20) primary key references infante_de_marina,
 arma varchar(20) not null,
 check (arma in ('Superficie','Ingenieria','Oceanografia','Logistica')),
-FOREIGN KEY (infante_de_marina) REFERENCES infante_de_marina(codigo)  
 ); 
 
 create table cadete (
-infante_de_marina numeric(20) primary key,
+infante_de_marina numeric(20) primary key  REFERENCES infante_de_marina,
 anio numeric(2) not null,
 check (anio in (1,2,3)),
-FOREIGN KEY (infante_de_marina) REFERENCES infante_de_marina(codigo)
 ); 
 
 
@@ -31,23 +32,16 @@ asignacion varchar(20) not null,
 check (asignacion in ('sublogistico','instructor','operativo') )
 ); 
 
-
-/*ARREGLAR ESTA TABLA!! */ 
-
-/* No me deja Ingresar Valores */ 
 create table JEFExCADETE (
 consecutivo integer(10) AUTO_INCREMENT PRIMARY KEY , 
-cadete numeric(10) NOT NULL, 
-suboficial numeric(10) , 
-oficial numeric(10) , 
+cadete numeric(10) NOT NULL REFERENCES cadete, 
+suboficial numeric(10) REFERENCES suboficial  , 
+oficial numeric(10)  REFERENCES oficial , 
 check ((suboficial IS NULL AND oficial IS NOT NULL ) 
 or (oficial IS  NULL AND suboficial IS NOT NULL ) ), 
 fecha_inicio date not null, 
-fecha_fin date, 
-FOREIGN KEY (oficial)  REFERENCES oficial (infante_de_marina),
- FOREIGN KEY (cadete) REFERENCES cadete (infante_de_marina) ,
- FOREIGN KEY (suboficial) REFERENCES suboficial (infante_de_marina) 
-)ENGINE=InnoDB;
+fecha_fin date
+);
 
 
  INSERT INTO jefexcadete (cadete,suboficial,oficial,fecha_inicio,fecha_fin) VALUES ('998',null,'1002','2013-05-10','2013-05-23')
