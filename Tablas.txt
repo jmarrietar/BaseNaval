@@ -22,15 +22,30 @@ check (anio in (1,2,3))
 ); 
 
 create table suboficial (
-infante_de_marina numeric (20) primary key references infante_de_marina
+infante_de_marina numeric (20) primary key references infante_de_marina   /*Verificar q SQL si acepta poner references asi */ 
 ); 
 
 
+/*ARREGLAR ESTA TABLA!! */ 
+
+/* No me deja Ingresar Valores */ 
 create table JEFExCADETE (
-consecutivo integer AUTO_INCREMENT primary key, 
-cadete numeric(10) references cadete, 
-suboficial numeric(10) references suboficial, 
-oficial numeric(10) references oficial, 
+consecutivo integer(10) AUTO_INCREMENT PRIMARY KEY , 
+cadete numeric(10) NOT NULL, 
+suboficial numeric(10) , 
+oficial numeric(10) , 
+check ((suboficial IS NULL AND oficial IS NOT NULL ) 
+or (oficial IS  NULL AND suboficial IS NOT NULL ) ), 
 fecha_inicio date not null, 
-fecha_fin date
-); 
+fecha_fin date, 
+CONSTRAINT FOREIGN KEY (oficial)  REFERENCES oficial(infante_de_marina) ON DELETE CASCADE,
+CONSTRAINT  FOREIGN KEY (cadete) REFERENCES cadete(infante_de_marina) ON DELETE CASCADE,
+CONSTRAINT  FOREIGN KEY (suboficial) REFERENCES suboficial(infante_de_marina) ON DELETE CASCADE
+)ENGINE=InnoDB; 
+
+
+
+
+
+
+

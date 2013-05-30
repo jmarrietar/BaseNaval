@@ -8,7 +8,7 @@ $cadetes=mysql_query("SELECT * FROM infante_de_marina WHERE tipo=3 ");
 <form id ="registrarCadete" method='post' action ='registrarCadete.php'>
 Elije el Cadete que desea especificar
 <select name='cadete'>
-
+	
 	<?php 
 	while ($row =mysql_fetch_array ($cadetes) ) {
 	echo "<option value ='$row[0]' > $row[0]- $row[1]</option>";

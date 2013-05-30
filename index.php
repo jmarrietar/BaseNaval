@@ -9,6 +9,10 @@ A quien desea hacer? .
 <a href='registrarCadete.php'>Registrar Cadete</a><br>
 <a href='registrarSuboficial.php'>Registrar Suboficial</a><br>
 <a href='AsignarJefe.php'>Asignar Jefe a Cadete</a><br/>
+<a href='ActualizarCadete.php'>Actualizar Cadete</a><br/>
+<a href='ActualizarOficial.php'>Actualizar Oficial</a><br/>
+<a href='ActualizarInfante.php'>Actualizar Infante</a><br/>
+<a href='BorrarOficial.php'>Borrar Oficial</a><br/>
 
 </body>
 </html>
