@@ -20,14 +20,13 @@ include ('conexion.php');
 
 if (isset($_POST['fecha'])) {
 $fecha = $_POST['fecha'];
-
 $jefexoficial=mysql_query("SELECT * FROM  jefexcadete WHERE fecha_inicio>'$fecha'");
 
 print  "Codigo Cadete Ingresado el dia  ".$fecha." ". "o posterior:";
 
 while ($row =mysql_fetch_array ($jefexoficial) ) {
 	
-	echo "<option value ='$row[0]' > $row[1]</option>";
+	echo "$row[1]</br>";
 	
 	}
 	} 
