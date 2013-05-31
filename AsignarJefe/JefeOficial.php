@@ -1,5 +1,5 @@
 <?php
-include('conexion.php');
+include('../conexion.php');
 $cadetes=mysql_query("SELECT * FROM cadete"); //Aqui se podria hacer un JOIN. con infante de marina.. Nombre.
 $oficiales=mysql_query("SELECT * FROM oficial");   
 ?>

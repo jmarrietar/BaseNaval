@@ -1,5 +1,5 @@
 <?php
-include ('conexion.php');
+include ('../conexion.php');
 $cadetes=mysql_query("SELECT * FROM cadete");
 ?>
 
@@ -22,14 +22,27 @@ echo "<option value ='$row[0]'>$row[0]</option>";
 </html>
 
 <?php 
+
 if (isset($_POST['borrar'])){
 	extract($_POST); 
+
+	$query1="DELETE FROM JEFExCadete WHERE cadete='$cadete' "; 
+
+	if (mysql_query($query1)){
+echo " Se han borrado los hijos";
+		
+
 	$query="DELETE FROM cadete WHERE infante_de_marina='$cadete'";
-if (mysql_query($query)) {
+	if (mysql_query($query)) {
         echo "<br/>Las datos del cadete se han borrado correctamente ";
-    } else {
-        echo "<br/>Se ha producido un error con la consulta: $query";
-    }
+    	} else {
+        	echo "<br/>Se ha producido un error con la consulta: $query";
+    	}
+
+	}else {
+		" No se borraron los Hijos ni tampoco el oficial"; 
+	}
+
 }
 
 ?>

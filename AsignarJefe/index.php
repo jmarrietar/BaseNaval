@@ -8,7 +8,7 @@ Cual sera el jefe del cadete?<br/>
 <a href='JefeSuboficial.php'>Asignar Suboficial </a><br/>
 
 <br/>
-<a href='index.php'>volver</a><br/>
+<a href='../index.php'>volver</a><br/>
 </body> 
 
 </html>

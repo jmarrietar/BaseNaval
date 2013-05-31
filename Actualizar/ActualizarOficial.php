@@ -1,5 +1,5 @@
 <?php
-include ('conexion.php');
+include ('../conexion.php');
 $oficiales=mysql_query("SELECT * FROM infante_de_marina WHERE tipo =1");
 ?>
 

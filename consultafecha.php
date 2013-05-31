@@ -26,7 +26,7 @@ print  "Codigo Cadete Ingresado el dia  ".$fecha." ". "o posterior:";
 
 while ($row =mysql_fetch_array ($jefexoficial) ) {
 	
-	echo "$row[1]</br>";
+	echo "</br>$row[1]";
 	
 	}
 	} 

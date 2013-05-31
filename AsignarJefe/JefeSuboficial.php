@@ -1,5 +1,5 @@
 <?php
-include ('conexion.php');
+include ('../conexion.php');
 $cadetes=mysql_query("SELECT * FROM cadete");
 $suboficiales=mysql_query("SELECT * FROM suboficial");
 ?>

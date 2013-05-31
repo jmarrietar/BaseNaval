@@ -1,5 +1,5 @@
 <?php
-include ('conexion.php');
+include ('../conexion.php');
 $infantes=mysql_query("SELECT * FROM  infante_de_marina");
 ?>
 

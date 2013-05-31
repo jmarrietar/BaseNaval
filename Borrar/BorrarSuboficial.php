@@ -1,5 +1,5 @@
 <?php
-include ('conexion.php');
+include ('../conexion.php');
 $suboficiales=mysql_query("SELECT * FROM suboficial");
 ?>
 
@@ -25,12 +25,23 @@ echo "<option value ='$row[0]'>$row[0]</option>";
 <?php 
 if (isset($_POST['borrar'])){
 	extract($_POST); 
-	$query="DELETE FROM suboficial WHERE infante_de_marina='$suboficial'";
+$query2="DELETE FROM JEFExCadete WHERE suboficial='$suboficial'"; 
+
+if (mysql_query($query2)){
+	echo "Se han borrado los hijos"; 
+
+		$query="DELETE FROM suboficial WHERE infante_de_marina='$suboficial'";
 if (mysql_query($query)) {
         echo "<br/>Las datos del suboficial se han borrado correctamente ";
     } else {
         echo "<br/>Se ha producido un error con la consulta: $query";
     }
+
+
+} else {
+	echo "No se han borrado los hijos Ni tampoco el Suboficial."; 
+}
+
 }
 
 ?>

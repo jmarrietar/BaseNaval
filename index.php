@@ -9,16 +9,12 @@ A quien desea hacer? .
 <a href='registrarCadete.php'>Registrar Cadete</a><br>
 <a href='registrarSuboficial.php'>Registrar Suboficial</a><br>
 
-<a href='ActualizarOficial.php'>Actualizar Oficial</a><br/>
-<a href='ActualizarSuboficial.php'>Actualizar Suboficial</a><br/>
-<a href='ActualizarCadete.php'>Actualizar Cadete</a><br/>
-<a href='ActualizarInfante.php'>Actualizar Infante</a><br/>
-<a href='BorrarOficial.php'>Borrar Oficial</a><br/>
-<a href='BorrarSuboficial.php'>Borrar Suboficial</a><br/>
-<a href='Borrarcadete.php'>Borrar Cadete</a><br/>
-<a href='BorrarInfante.php'>Borrar Infante</a><br/>
-<a href='AsignarJefe.php'>Asignar Jefe a Cadete</a><br/>
+<a href='Actualizar/index.php'>Actualizar</a><br/>
+<a href='Borrar/index.php'>Borrar</a><br/>
+
+<a href='AsignarJefe/index.php'>Asignar Jefe a Cadete</a><br/>
 <a href="consultafecha.php">Consultar</a><br/>
+
 
 
 </body>
