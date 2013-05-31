@@ -6,22 +6,20 @@ create table infante_de_marina (
 	correo_electronico varchar(30) not null
 ); 
 
-//Nota: No se le pudo poner check, Ponia problemas el mysql de syntaxis. 
 
-/* NOTA GENERAL: METER TODAS ESTAS TABLAS DENEUVO CON DATOS Y 
- VERIFICAR QUE SE CUMPLA LO DE CLAVE PRIMARIA
+
 
 */ 
 create table oficial (
 infante_de_marina numeric(20) primary key references infante_de_marina,
 arma varchar(20) not null,
-check (arma in ('Superficie','Ingenieria','Oceanografia','Logistica')),
+check (arma in ('Superficie','Ingenieria','Oceanografia','Logistica'))
 ); 
 
 create table cadete (
 infante_de_marina numeric(20) primary key  REFERENCES infante_de_marina,
 anio numeric(2) not null,
-check (anio in (1,2,3)),
+check (anio in (1,2,3))
 ); 
 
 
