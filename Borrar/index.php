@@ -8,6 +8,9 @@
 <a href='BorrarInfante.php'>Borrar Infante</a><br/>
 <a href='BorrarJefexCadete.php'>Borrar JefexCadete</a><br/>
 
+<br/>
+<a href='../index.php'>volver</a><br/>
+</body> 
 
-</body>
+
 </html>
