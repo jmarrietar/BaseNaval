@@ -39,7 +39,7 @@ if (mysql_query($query)) {
         echo "<br/>Se ha producido un error con la consulta: $query";
     }
 
-    //ESTO NO ESTA ENTRANDO AQUI!! ¿POR QUE?
+   
 } 
 
 
