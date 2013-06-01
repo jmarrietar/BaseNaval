@@ -1,6 +1,4 @@
 - Hacer las Validaciones en Php y JQuery. 
--Hacer las consultas 
--Hacer las Busquedas. 
 
 - En JefeXcadete Me esta dejando pasar una algo SIN FECHA DE INICIO. 
 - Poner opcion en Jefexcadete que Fecha_Fin Sea Null envez de 000000 
