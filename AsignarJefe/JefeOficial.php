@@ -32,7 +32,7 @@ echo "<option value='$row[0]'> $row[0]-$row[1]</option>";
 
 </select>
 </br>
-Fecha de Inicio <input type='date' name='fecha_inicio'><br/> 
+Fecha de Inicio <input type='date' name='fecha_inicio' required><br/> 
 Fecha de Fin <input type='date' name='fecha_fin'><br/>  
 <input type='submit' name='registrar' value='Registrar'>
 </form>

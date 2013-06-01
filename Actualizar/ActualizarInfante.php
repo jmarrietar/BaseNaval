@@ -14,8 +14,8 @@ Elije el Infante que desea actualizar
 
 ?>
 </select></br>
-	Nombre: <input type='text' name='nombre' /><br/>
-	Correo electronico: <input type='text' name='correo' /><br/>
+	Nombre: <input type='text' name='nombre' required/><br/>
+	Correo electronico: <input type='text' name='correo' required/><br/>
 	
 <input type='submit' name='actualizar' value='Actualizar'>
 
@@ -28,9 +28,12 @@ Elije el Infante que desea actualizar
 
 <?php 
 if (isset($_POST['actualizar'])){
-	echo "pase";
+	
 	extract($_POST); 
-	$query="UPDATE infante_de_marina
+
+if (preg_match ("/^[A-Za-z][A-Za-z -]*[A-Za-z]$/", $nombre) && filter_var($correo, FILTER_VALIDATE_EMAIL)  ) {
+
+$query="UPDATE infante_de_marina
 	  SET nombre ='$nombre',correo_electronico='$correo'  
 	  WHERE codigo='$infante' ";
 if (mysql_query($query)) {
@@ -39,8 +42,13 @@ if (mysql_query($query)) {
         echo "<br/>Se ha producido un error con la consulta: $query";
     }
 
-   
-} 
+} else {
+	 echo "Datos no se guardaron, datos no correctos";
+}
+
+
+}
+	
 
 
 ?>

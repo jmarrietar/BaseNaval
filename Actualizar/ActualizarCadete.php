@@ -27,12 +27,24 @@ Anio: <input type='text' name='anio'><br/>
 <?php 
 if (isset($_POST['actualizar'])){
 	extract($_POST); 
+
+
+if ($anio==1 or $anio==2 or $anio==3 ){
+
 	$query="UPDATE cadete SET anio ='$anio' WHERE infante_de_marina='$cadete' ";
 if (mysql_query($query)) {
         echo "<br/>Las actualizaciones del cadete se registraron correctamente ";
     } else {
         echo "<br/>Se ha producido un error con la consulta: $query";
     }
+
+}else {
+	echo "<br>Numero no se encuentra entre valores {1,2,3}.";
+
+}
+
+
+
 }
 
 ?>

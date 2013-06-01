@@ -28,7 +28,7 @@ Anio: <input type='text' name='anio' value="
 if(isset($_POST['anio']))
 echo $_POST['anio'];
 ?>
-"><br/>
+" required><br/>
 
 
 <input type='submit' name='registrar' value='Registrar'>
@@ -52,7 +52,7 @@ if (mysql_query($query)) {
     }
 
 }else {
-	echo "<br>Numero no se encuentra en un rango Valido {1,2,3}.";
+	echo "<br>Numero no se encuentra entre valores {1,2,3}.";
 
 }
 

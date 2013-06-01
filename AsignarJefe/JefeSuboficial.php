@@ -34,7 +34,7 @@ Elije el Suboficial que sera su jefe
 
 </br>
 
-Fecha de Inicio<input type='date' name='fecha_inicio'><br/>
+Fecha de Inicio<input type='date' name='fecha_inicio' required><br/>
 Fecha de Fin <input type ='date' name='fecha_fin'><br/>
 
 <br/>
