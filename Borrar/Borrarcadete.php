@@ -5,18 +5,35 @@ $cadetes=mysql_query("SELECT * FROM cadete");
 
 
 <html>
-<form method='post' action='Borrarcadete.php'>
-Elija el cadeteque quiere Borrar
+<head> 
+<meta charset="utf-8"> 
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
 
-<select name='cadete'>
+<form class="form-horizontal"  method='post' action='Borrarcadete.php'>
+
+<fieldset>
+		<legend>Borrar Cadete </legend>
+
+<div class="control-group">
+				<label class="control-label" for="cadete1"> Cadete :  </label>
+ 					<div class="controls">
+
+<select id="cadete1"name='cadete'>
 
 	<?php
 	while($row=mysql_fetch_array($cadetes))
 echo "<option value ='$row[0]'>$row[0]</option>";
 	?>
 
-</select></br>
-<input type='submit' name='borrar' value='Borrar'>
+</select>
+</div>
+		</div>
+
+<div class="form-actions">
+ 	
+ 		<button type="submit" class="btn btn-primary " name='borrar' value='Borrar'>Borrar</button>
+ 		
 </form>
 <br/> <a href='index.php'>volver</a>
 </html>

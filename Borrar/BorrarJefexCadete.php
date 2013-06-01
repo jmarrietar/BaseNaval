@@ -4,10 +4,21 @@ $JefexCadetes=mysql_query("SELECT * FROM JefexCadete");
 ?>
 
 <html>
-<form method='post' action='BorrarJefexCadete.php'>
-Elija el cadeteque quiere Borrar
+<head> 
+<meta charset="utf-8"> 
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
 
-<select name='JefexCadete'>
+<form class="form-horizontal" method='post' action='BorrarJefexCadete.php'>
+	<fieldset>
+		<legend>Borrar JefexCadetes </legend>
+
+		<div class="control-group">
+				<label class="control-label" for="JefexCadete1"> JefexCadete :  </label>
+ 					<div class="controls">
+
+
+<select id="JefexCadete1" name='JefexCadete'>
 
 	<?php
 	while($row=mysql_fetch_array($JefexCadetes))
@@ -15,8 +26,16 @@ echo "<option value ='$row[0]'>$row[1]-$row[2]-$row[3]-$row[4]</option>";
 	?>
 
 
-	</select></br>
-<input type='submit' name='borrar' value='Borrar'>
+	</select>
+
+	</div>
+		</div>
+
+
+<div class="form-actions">
+ 	
+ 		<button type="submit" class="btn btn-primary " name='borrar' value='Borrar'>Borrar</button>
+ 		
 </form>
 <br/> <a href='index.php'>volver</a>
 </html>

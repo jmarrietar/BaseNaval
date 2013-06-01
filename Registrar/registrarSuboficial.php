@@ -4,9 +4,22 @@ $suboficiales=mysql_query("SELECT * FROM infante_de_marina WHERE tipo =2");
 ?>
 
 <html>
-<form id ='registrarSuboficial' method='post' action='registrarSuboficial.php'>
-Elija el Suboficial que desea especificar. 
-<select name='suboficial'>
+<head> 
+<meta charset="utf-8"> 
+
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<form class="form-horizontal" id ='registrarSuboficial' method='post' action='registrarSuboficial.php'>
+
+<fieldset>
+		<legend>Registro de Suboficiales</legend>
+
+		<div class="control-group">
+				<label class="control-label" for="oficial1"> Suboficial :  </label>
+ 					<div class="controls">
+
+<select id="suboficial1" name='suboficial'>
 
 <?php
 	while($row=mysql_fetch_array($suboficiales)){
@@ -16,16 +29,26 @@ Elija el Suboficial que desea especificar.
 ?>
 
 </select>
-<br/>
 
-Asignacion: <select name='asignacion'></br>
+		</div>
+		</div>
+
+<div class="control-group">
+ 			<label class="control-label" for="arma1"> Asignacion:  </label>
+ 				<div class="controls">
+
+ <select name='asignacion'></br>
 <option value='sublogistico'>sublogistico</option>
 <option value='instructor'>instructor</option>
 <option value='operativo'>operativo</option>
 
-</select></br>
+</select>	
+	</div>
+	</div>
 
-<input type='submit' name ='registrar' value='Registrar'>
+
+<div class="form-actions">
+ 		<button type="submit" class="btn btn-primary " name='registrar' value='Registrar'>Registrar</button>
 
 </form>
 

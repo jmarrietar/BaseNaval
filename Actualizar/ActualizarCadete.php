@@ -4,8 +4,20 @@ $cadetes=mysql_query("SELECT * FROM cadete");
 ?>
 
 <html>
-<form method='post' action='ActualizarCadete.php'>
-Elija el Cadete el cual se actualizara 
+<head> 
+<meta charset="utf-8"> 
+
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<form class="form-horizontal" method='post' action='ActualizarCadete.php'>
+
+<fieldset>
+		<legend>Actualizar Cadetes</legend>
+		<div class="control-group">
+ 			<label class="control-label" for="cadete1"> Cadete  :  </label>
+ 				<div class="controls">
+
 <select name='cadete'>
 
 	<?php
@@ -13,13 +25,25 @@ Elija el Cadete el cual se actualizara
 echo "<option value='$row[0]'>$row[0]-$row[1]</option>";
 	?>
 
-</select></br>
+</select>
+		</div>
+		</div>
 
 
-Anio: <input type='text' name='anio'><br/>
-<input type='submit' name='actualizar' value='Actualizar'>
+ <div class="control-group">
+ 	 <label class="control-label" for="codigo1">Anio : </label>
+ 	 <div class="controls">
+
+ <input type='text' name='anio' required><br/>
+ <p class="help-block">Por favor Ingresa un Año valido (1,2 o 3 ). </p>
+
+	</div>
+		</div>
+
+<div class="form-actions">
+ 		<button type="submit" class="btn btn-primary " name='actualizar' value='Actualizar'>Actualizar</button>
 </form>
-
+</br>
 <br/> <a href='index.php'>volver</a>
 
 </html>

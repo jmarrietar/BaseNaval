@@ -4,10 +4,20 @@ $cadetes=mysql_query("SELECT * FROM infante_de_marina WHERE tipo=3 ");
 ?> 
 
 <html>
+<head> 
+<meta charset="utf-8"> 
 
-<form id ="registrarCadete" method='post' action ='registrarCadete.php'>
-Elije el Cadete que desea especificar
-<select name='cadete'>
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+<form class="form-horizontal" id ="registrarCadete" method='post' action ='registrarCadete.php'>
+
+	<fieldset>
+		<legend>Registro de Cadetes</legend>
+		<div class="control-group">
+ 			<label class="control-label" for="cadete1"> Cadete  :  </label>
+ 				<div class="controls">
+
+ 					<select id="cadete1"name='cadete'>
 	
 	<?php 
 	while ($row =mysql_fetch_array ($cadetes) ) {
@@ -17,11 +27,14 @@ Elije el Cadete que desea especificar
 	?>
 
 </select>
-<br/>
 
+ 				</div>
+		</div>
 
-
-Anio: <input type='text' name='anio' value="
+ <div class="control-group">
+ 	 <label class="control-label" for="codigo1">Anio : </label>
+ 	 <div class="controls">
+ 		<input type='text' name='anio' value="
 
 <?php 
 
@@ -29,9 +42,16 @@ if(isset($_POST['anio']))
 echo $_POST['anio'];
 ?>
 " required><br/>
+  <p class="help-block">Por favor Ingresa un Año valido (1,2 o 3 ). </p>
 
 
-<input type='submit' name='registrar' value='Registrar'>
+	</div>
+		</div>
+
+
+ <div class="form-actions">
+ 		<button type="submit" class="btn btn-primary " name='registrar' value='Registrar'>Registrar</button>
+
 </form>
 
 <br/> <a href='index.php'>volver</a>

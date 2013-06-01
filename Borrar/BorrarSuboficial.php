@@ -4,20 +4,37 @@ $suboficiales=mysql_query("SELECT * FROM suboficial");
 ?>
 
 <html>
-<form method='post' action='BorrarSuboficial.php'>
-Elija el oficial que quiere Borrar
+<head> 
+<meta charset="utf-8"> 
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
 
-<select name='suboficial'>
+<form class="form-horizontal"  method='post' action='BorrarSuboficial.php'>
+
+		<fieldset>
+		<legend>Borrar Suboficiales </legend>
+
+<div class="control-group">
+				<label class="control-label" for="suboficial1"> Suboficial  :  </label>
+ 					<div class="controls">
+
+<select id="suboficial1" name='suboficial'>
+
 
 	<?php
 	while($row=mysql_fetch_array($suboficiales))
 echo "<option value ='$row[0]'>$row[0]</option>";
 	?>
 
-</select></br>
+</select>
+</div>
+		</div>
 
-<input type='submit' name='borrar' value='Borrar'>
+<div class="form-actions">
+ 	
+ 		<button type="submit" class="btn btn-primary " name='borrar' value='Borrar'>Borrar</button>
 </form>
+<br/>
 <br/> <a href='index.php'>volver</a>
 </html>
 

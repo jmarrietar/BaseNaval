@@ -1,12 +1,23 @@
 <?php
 include ('../conexion.php');
-$oficiales=mysql_query("SELECT * FROM infante_de_marina WHERE tipo =1");
+$oficiales=mysql_query("SELECT * FROM oficial");
 ?>
 
 
 <html>
-<form method='post' action='ActualizarOficial.php'>
-Elija el oficial el cual se actualizara 
+<head> 
+<meta charset="utf-8"> 
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<form class="form-horizontal" method='post' action='ActualizarOficial.php'>
+	<fieldset>
+		<legend>Actualizar Oficiales </legend>
+
+<div class="control-group">
+				<label class="control-label" for="oficial1"> Oficial  :  </label>
+ 					<div class="controls">
+
 <select name='oficial'>
 
 	<?php
@@ -14,14 +25,27 @@ Elija el oficial el cual se actualizara
 echo "<option value='$row[0]'>$row[0]-$row[1]</option>";
 	?>
 
-</select></br>
-Arma: <select name='arma'><br/>
+</select>
+</div>
+		</div>
+
+<div class="control-group">
+ 			<label class="control-label" for="arma1"> Arma:  :  </label>
+ 				<div class="controls">
+
+ <select id="arma1"name='arma'><br/>
 <option value='Superficie'>Superficie</option>
 <option value='Ingenieria'>Ingenieria</option>
 <option value='Oceanografia'>Oceanografia</option>
-<option value='Logistica'>Logistica'</option></br>
+<option value='Logistica'>Logistica'</option>
 
-<input type='submit' name='actualizar' value='Actualizar'>
+</select>
+
+	</div>
+		</div>
+
+<div class="form-actions">
+ 		<button type="submit" class="btn btn-primary " name='actualizar' value='Actualizar'>Actualizar</button>
 </form>
 
 <br/> <a href='index.php'>volver</a>

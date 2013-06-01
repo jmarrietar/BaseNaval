@@ -5,9 +5,22 @@ $suboficiales=mysql_query("SELECT * FROM suboficial");
 ?>
 
 
-<html>
-<form method='post' action='JefeSuboficial.php'>
-Elije el  cadete  al cual se asignara Jefe   <!-- Nota , hacer algo para que no muestre los que ya tengan jefe--> 
+<!DOCTYPE html> 
+<html > 
+<head> 
+<meta charset="utf-8"> 
+
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<form class="form-horizontal"  method='post' action='JefeSuboficial.php'>
+		<fieldset>
+		<legend>Asignacion Jefe Subficial a Cadete </legend>
+
+	<div class="control-group">
+ 			<label class="control-label" for="cadete2"> Cadete  :  </label>
+ 				<div class="controls">
+  
 <select name='cadete'>
 <?php
 
@@ -17,14 +30,19 @@ echo "<option value='$row[0]'> $row[0]-$row[1]</option>";
 	}
 ?>
 
-</select></br>
-Elije el Suboficial que sera su jefe
+</select>
+</div>
+		</div>
 
-<select name='suboficial'>
+<div class="control-group">
+				<label class="control-label" for="suboficial2"> Subficial  :  </label>
+ 					<div class="controls">
+
+<select id="suboficial2" name='suboficial'>
 
 <?php
 	while ($row=mysql_fetch_array($suboficiales)){
-		echo"<option value='$row[0]'>$row[0]</option>";  // Hacer un Join con La tabla padre para mostrar nombre tamnbien
+		echo"<option value='$row[0]'>$row[0]</option>";  
 
 	}
 
@@ -32,15 +50,36 @@ Elije el Suboficial que sera su jefe
 
 </select>
 
-</br>
+</div>
+		</div>
 
-Fecha de Inicio<input type='date' name='fecha_inicio' required><br/>
-Fecha de Fin <input type ='date' name='fecha_fin'><br/>
+		<div class="control-group">
+ 			<label class="control-label" for="fecha1"> Fecha de Inicio  :  </label>
+ 				<div class="controls">
 
-<br/>
-<input type='submit' name='registrar' value='Registrar'></br>
-<a href='index.php'>Volver</a>
+ <input id="fecha1"type='date' name='fecha_inicio' required><br/>
+	</div>
+		</div>
+
+			<div class="control-group">
+ 			<label class="control-label" for="fecha2"> Fecha de Fin :  </label>
+ 				<div class="controls">
+
+<input id="fecha2"type='date' name='fecha_fin'><br/> 
+
+</div>
+		</div>
+
+
+<div class="form-actions">
+ 		<button type="submit" class="btn btn-primary " name='registrar' value='Registrar'>Registrar</button>
+
+
 </form>
+</br>
+</br>
+<a href='index.php'>Volver</a>
+
 </html>
 
 

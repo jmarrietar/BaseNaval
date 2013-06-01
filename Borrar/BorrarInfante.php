@@ -6,18 +6,35 @@ $infantes=mysql_query("SELECT * FROM  infante_de_marina");
 
 
 <html>
-<form method='post' action ='BorrarInfante.php'>
-Elije el Infante que desea Borrar 
-<select name='infante'>
+<head> 
+<meta charset="utf-8"> 
+<link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<form class="form-horizontal" method='post' action ='BorrarInfante.php'>
+
+	<fieldset>
+		<legend>Borrar Infante</legend>
+
+<div class="control-group">
+				<label class="control-label" for="infante1"> Suboficial  :  </label>
+ 					<div class="controls">
+
+<select id="infante1" name='infante'>
 
 <?php
 	while ($row=mysql_fetch_array($infantes))
 		echo "<option value='$row[0]'>$row[0]-$row[1]</option>"; 
 
 ?>
-</select></br>
+</select>
+</div>
+		</div>
+		
 
-<input type='submit' name='borrar' value='Borrar'>
+<div class="form-actions">
+ 	
+ 		<button type="submit" class="btn btn-primary " name='borrar' value='Borrar'>Borrar</button>
 
 </form> 
 
