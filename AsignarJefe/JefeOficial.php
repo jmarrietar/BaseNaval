@@ -33,18 +33,11 @@ var fechaArr = fechainicial.split('-');
 	
   if(fechafinal==""){
 	  
- alert("Ingresa la fecha final, si AUN no hay fecha final, utilice 0")
-
- } else {
-	 if(fechafinal==0){
 		 
 		 return true;
 	 }
- }
- if(fechafinal==null){
-	 
-	 return true;
- }
+ 
+
  var fechaArr = fechafinal.split('-');
  var aho = fechaArr[0];
  var mes = fechaArr[1];

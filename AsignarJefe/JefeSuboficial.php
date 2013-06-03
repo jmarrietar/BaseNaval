@@ -35,18 +35,10 @@ var fechaArr = fechainicial.split('-');
 	
   if(fechafinal==""){
 	  
- alert("Ingresa la fecha final, si AUN no hay fecha final, utilice 0")
-
- } else {
-	 if(fechafinal==0){
-		 
-		 return true;
+ return true;
 	 }
- }
- if(fechafinal==null){
-	 
-	 return true;
- }
+ 
+
  var fechaArr = fechafinal.split('-');
  var aho = fechaArr[0];
  var mes = fechaArr[1];
@@ -195,7 +187,7 @@ if (checkdate( $fecha_iniciox[1],$fecha_iniciox[2], $fecha_iniciox[0])){
    				 }
 
 }else {
-	echo "<br/> Fecha de fin no valida2";
+	echo "<br/> Fecha de fin no valida";
 }
 
 
