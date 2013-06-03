@@ -6,6 +6,26 @@ $cadetes=mysql_query("SELECT * FROM infante_de_marina WHERE tipo=3 ");
 <html>
 <head> 
 <meta charset="utf-8"> 
+<script>
+function validarmodulo() {
+    var ano = document.getElementById("ano").value;
+    
+	
+        if(isNaN(ano) ){
+		alert("El valor ingresado debe ser numérico");
+	}
+	
+	
+	
+	
+	
+	document.getElementById("uts").click();
+
+}
+
+
+
+</script>
 
 <link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
 </head>
@@ -34,7 +54,7 @@ $cadetes=mysql_query("SELECT * FROM infante_de_marina WHERE tipo=3 ");
  <div class="control-group">
  	 <label class="control-label" for="codigo1">Anio : </label>
  	 <div class="controls">
- 		<input type='text' name='anio' value="
+ 		<input type='text' id='ano' name='anio' value="
 
 <?php 
 
@@ -50,7 +70,8 @@ echo $_POST['anio'];
 
 
  <div class="form-actions">
- 		<button type="submit" class="btn btn-primary " name='registrar' value='Registrar'>Registrar</button>
+ 		<input type="button"  onclick="validarmodulo()" value='Registrar' class="btn btn-primary ">
+        <button type="submit"    id="uts" name='registrar' value='Registrar' style="color: transparent; background-color: transparent; border-color: transparent;" > </button>
 
 </form>
 

@@ -9,10 +9,77 @@ $suboficiales=mysql_query("SELECT * FROM suboficial");
 <html > 
 <head> 
 <meta charset="utf-8"> 
+<script>function validarfecha1(){
+var fechainicial = document.getElementById("fecha1").value;	
+var fechaArr = fechainicial.split('-');
+ var aho = fechaArr[0];
+ var mes = fechaArr[1];
+ var dia = fechaArr[2];
+ 
+ if(fechainicial==""){
+ alert("Ingresa la fecha inicial")
+ }
+ var calendario = new Date(aho, mes - 1, dia);//mes empieza de cero Enero = 0
+
+ if(calendario && calendario.getFullYear() == aho && calendario.getMonth() == mes -1 && calendario.getDate() == dia){
+ 
+  return true;
+ }else{
+ alert("Ingresa una fecha correcta inicial asi: AAA-MM-DD")
+
+ }
+}</script>
+
+<script>function validarfecha2(fechafinal){
+ var fechafinal = document.getElementById("fecha2").value;
+	
+  if(fechafinal==""){
+	  
+ alert("Ingresa la fecha final, si AUN no hay fecha final, utilice 0")
+
+ } else {
+	 if(fechafinal==0){
+		 
+		 return true;
+	 }
+ }
+ if(fechafinal==null){
+	 
+	 return true;
+ }
+ var fechaArr = fechafinal.split('-');
+ var aho = fechaArr[0];
+ var mes = fechaArr[1];
+ var dia = fechaArr[2];
+ 
+ var calendario = new Date(aho, mes - 1, dia);//mes empieza de cero Enero = 0
+
+ if(calendario && calendario.getFullYear() == aho && calendario.getMonth() == mes -1 && calendario.getDate() == dia){
+ return true;
+ }else{
+ alert("Ingresa una fecha final correcta asi: AAA-MM-DD")
+ }
+ 
+ 
+}</script>
+
+
+
+<script>
+ function validarfechas(){
+	 var r1=validarfecha1();
+	 var r2= validarfecha2();
+	 if( r1&&r2){
+	 document.getElementById("env").click();
+	 }
+ 
+ }
+</script>
+
 
 <link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
 </head>
-
+<body>
 <form class="form-horizontal"  method='post' action='JefeSuboficial.php'>
 		<fieldset>
 		<legend>Asignacion Jefe Subficial a Cadete </legend>
@@ -57,8 +124,7 @@ echo "<option value='$row[0]'> $row[0]-$row[1]</option>";
  			<label class="control-label" for="fecha1"> Fecha de Inicio  :  </label>
  				<div class="controls">
 
- <input id="fecha1"type='date' name='fecha_inicio' required>
- <p class="help-block">Por favor Ingresa fecha valida aaaa/mm/dd. </p>
+ <input id="fecha1"type='date' name='fecha_inicio' required><br/>
 	</div>
 		</div>
 
@@ -66,23 +132,24 @@ echo "<option value='$row[0]'> $row[0]-$row[1]</option>";
  			<label class="control-label" for="fecha2"> Fecha de Fin :  </label>
  				<div class="controls">
 
-<input id="fecha2"type='date' name='fecha_fin'>
- <p class="help-block">Por favor Ingresa fecha valida aaaa/mm/dd. </p>
-<br/> 
+<input id="fecha2"type='date' name='fecha_fin'><br/> 
 
 </div>
 		</div>
 
 
 <div class="form-actions">
- 		<button type="submit" class="btn btn-primary " name='registrar' value='Registrar'>Registrar</button>
+ 		<input type="button"  onclick="validarfechas()" value='Registrar' class="btn btn-primary ">
 
+
+
+   <button type="submit"   id="env" name='registrar' value='Registrar*' id="env" style="color: transparent; background-color: transparent; border-color: transparent;" > </button>
 
 </form>
 </br>
 </br>
 <a href='index.php'>Volver</a>
-
+</body>
 </html>
 
 
@@ -144,6 +211,3 @@ if (checkdate( $fecha_iniciox[1],$fecha_iniciox[2], $fecha_iniciox[0])){
 }
 
 ?>
-
-
-	

@@ -6,10 +6,32 @@ $cadetes=mysql_query("SELECT * FROM cadete");
 <html>
 <head> 
 <meta charset="utf-8"> 
+<script>
+function validarmodulo() {
+    var ano = document.getElementById("ano").value;
+    
+	
+        if(isNaN(ano) ){
+		alert("El valor ingresado debe ser numérico");
+	}
+	
+	
+	
+	
+	
+	document.getElementById("uts").click();
+
+}
+
+
+
+</script>
 
 <link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
 </head>
 
+
+<body>
 <form class="form-horizontal" method='post' action='ActualizarCadete.php'>
 
 <fieldset>
@@ -34,18 +56,20 @@ echo "<option value='$row[0]'>$row[0]-$row[1]</option>";
  	 <label class="control-label" for="codigo1">Anio : </label>
  	 <div class="controls">
 
- <input type='text' name='anio' required><br/>
+ <input type='text' id='ano' name='anio' required><br/>
  <p class="help-block">Por favor Ingresa un Año valido (1,2 o 3 ). </p>
 
 	</div>
 		</div>
 
 <div class="form-actions">
- 		<button type="submit" class="btn btn-primary " name='actualizar' value='Actualizar'>Actualizar</button>
+ 		
+        <input type="button"  onclick="validarmodulo()" value='Actualizar' class="btn btn-primary ">
+                <button type="submit"  name='actualizar' value='Actualizar' id='uts'style="color: transparent; background-color: transparent; border-color: transparent;" > </button>
 </form>
 </br>
 <br/> <a href='index.php'>volver</a>
-
+</body>
 </html>
 
 <?php 

@@ -5,25 +5,86 @@ include('../conexion.php');
 <!DOCTYPE html> 
 <html > 
 <head> 
-<meta charset="utf-8"> 
 
+<meta charset="utf-8"> 
+<script>
+
+function validarmodulo() {
+    var codigo = document.getElementById("codigo1").value;
+    var email = document.getElementById("correo1").value;
+    var nombre = document.getElementById("nombre1").value;
+	var re  = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/; 
+	
+
+
+   
+    if(nombre==""){
+		
+	return alert("Debe ingresar un nombre");
+	
+	} else if(!isNaN(nombre) ){
+		alert("El nombre no puede ser numérico");
+	} 
+	
+	 if(codigo==""){
+		
+	return alert("Debe ingresar un codigo");
+	
+	
+	}
+	
+	if(email==""){
+	alert("ingresa un correo electronico"); 
+	}
+	
+	if(isNaN(codigo) ){
+		alert("El código ingresado debe ser numérico");
+	}
+	
+	if (!re.test(email)) { 
+    alert ("La dirección de correo parece no ser válida"); 
+	}
+	
+	
+	
+	document.getElementById("uts").click();
+
+}
+
+
+
+</script>
 <link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
 </head>
+
+
+<body>
 <form class="form-horizontal" id="registraInfantedeMarina" method='get' action ='registrarInfantedeMarina.php'  >
-	<fieldset>
-		<legend>Registro de Infantes</legend>
+	
+  
+    <fieldset>
+	
+    
+    
+    
+    	<legend>Registro de Infantes</legend>
 		<div class="control-group">
 		  <label class="control-label" for="codigo1">Codigo :</label>
 		    <div class="controls">
-				<input type='text' id ="codigo1" name='codigo' required/><br/>
+				<input type='text' id ="codigo1" name='codigo'  required  /><br/>
 					  <p class="help-block">Por favor Ingresa un código valido (Solo Números). </p>
+                      
+                      
 			</div>
+            
+      
+            
 		</div>
 
 
 		 <label class="control-label" for="optionsCheckbox">Nombre</label>
 		 	<div class="controls">
-		 		<input type='text' id="nombre1" name='nombre' required/><br/>
+		 		<input type='text' id="nombre1" name='nombre' /><br/>
 					<p class="help-block">Por favor Ingrese un Nombre  valido (Solo Letras). </p>
 
 				</div>
@@ -53,16 +114,27 @@ include('../conexion.php');
           </div>
 
        <div class="form-actions">
-       	<button type="submit" class="btn btn-primary " name='registrar' value='Registrar'>Registrar</button>
+       	
+        
+        <input type="button"  onclick="validarmodulo()" value='Registrar' class="btn btn-primary ">
+        <button type="submit"    id="uts" name='registrar' value='Registrar' style="color: transparent; background-color: transparent; border-color: transparent;" > </button>
+        	
+       
+        
 
 
 </form> 
+</body>
+</html>
+
 
 
 <br/><a href='index.php'>volver</a>
 
 
 <?php 
+
+
 if (isset($_GET['registrar'])){
 	$codigo=$_GET['codigo']; 
 	$nombre=$_GET['nombre'];
@@ -83,5 +155,6 @@ if (mysql_query($query)){
 
 
 }
+
 
 ?>

@@ -7,10 +7,44 @@ $infantes=mysql_query("SELECT * FROM infante_de_marina");
 <html > 
 <head> 
 <meta charset="utf-8"> 
+<script>
+function validarmodulo() {
+    var email = document.getElementById("correo1").value;
+    var nombre = document.getElementById("nombre1").value;
+	var re  = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/; 
+	
+
+
+   
+    if(nombre==""){
+		
+	return alert("Debe ingresar un nombre");
+	
+	} else if(!isNaN(nombre) ){
+		alert("El nombre no puede ser numérico");
+	}
+	
+	
+	
+	if(email==""){
+	alert("ingresa un correo electronico"); 
+	}
+	
+	
+	if (!re.test(email)) { 
+    alert ("La dirección de correo parece no ser válida"); 
+	}
+	
+	
+	
+	document.getElementById('uts').click();
+
+}
+</script>
 
 <link href="../twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
 </head>
-
+<body>
 <form class="form-horizontal" method='post' action ='ActualizarInfante.php'>
 	<fieldset>
 		<legend>Actualizar  Infantes</legend>
@@ -56,12 +90,15 @@ $infantes=mysql_query("SELECT * FROM infante_de_marina");
 
 	
 <div class="form-actions">
- 		<button type="submit" class="btn btn-primary " name='actualizar' value='Actualizar'>Actualizar</button>
-
+ 		
+                
+                <input type="button"  onclick="validarmodulo()" value='Registrar' class="btn btn-primary ">
+        <button type="submit"  name='actualizar' value='Actualizar' id="uts"style="color: transparent; background-color: transparent; border-color: transparent;" > </button>
 </form> 
 
 </br>
 <br/> <a href='index.php'>volver</a>
+</body>
 </html>
 
 
