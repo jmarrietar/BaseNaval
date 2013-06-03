@@ -9,7 +9,7 @@ WHERE jefexcadete.suboficial IS NULL
 
 ?>
 
-Los Suboficiales que han tenido cadetes a su mando: 
+Los Suboficiales que no han tenido cadetes a su mando: 
  <FORM METHOD="post" ACTION='consulta1.php'>
 <INPUT TYPE='submit' NAME='Mostrar_Suboficiales' VALUE ='Mostrar'></center>
 
