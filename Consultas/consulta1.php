@@ -1,15 +1,18 @@
 <?php
 include ('../conexion.php'); 
-$suboficiales0=mysql_query("select * from infante_de_marina
+$suboficiales0=mysql_query("
+select codigo,nombre,correo_electronico ,asignacion 
+from (select * from infante_de_marina
 where codigo in (
 SELECT infante_de_marina FROM suboficial left outer join jefexcadete 
 ON suboficial.infante_de_marina=jefexcadete.suboficial
 WHERE jefexcadete.suboficial IS NULL
-)") ;
+))  e , suboficial
+WHERE e.codigo=suboficial.infante_de_marina;") ;
 
 ?>
 
-Los Suboficiales que han tenido cadetes a su mando: 
+Los Suboficiales que no han tenido cadetes a su mando: 
  <FORM METHOD="post" ACTION='consulta1.php'>
 <INPUT TYPE='submit' NAME='Mostrar_Suboficiales' VALUE ='Mostrar'></center>
 
