@@ -8,8 +8,6 @@ create table infante_de_marina (
 
 
 
-
-*/ 
 create table oficial (
 infante_de_marina numeric(20) primary key references infante_de_marina,
 arma varchar(20) not null,

@@ -1,6 +1,0 @@
-- Hacer las Validaciones JQuery. 
-
-- En JefeXcadete Me esta dejando pasar una algo SIN FECHA DE INICIO. 
-- Poner opcion en Jefexcadete que Fecha_Fin Sea Null envez de 000000 
-
-Observacion: En la Consulta mejor poner un Slider para que no siempre hayan Jefes Validos ¿? Idea
